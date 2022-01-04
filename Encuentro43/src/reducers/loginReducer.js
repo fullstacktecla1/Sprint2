@@ -1,11 +1,14 @@
 import * as type from '../actionType';
-export default function loginReducer(state=[],action){
+export default function loginReducer(state={},action){
     switch (action.type) {
         case type.INICIO_SESION:
-            console.log("desde reducer", action.data);
-            return [...state,action.data];
+            state = action.data;
+            console.log("desde reducer", state);
+            return state;
         case type.CIERRE_SESION:
-            return [];
+            state={};
+            console.log("desde reducer cierre", state);
+            return {};
         default:
             return state
     }

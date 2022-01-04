@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { Field, reduxForm } from 'redux-form';
+import { Field, reduxForm, reset } from 'redux-form';
 import * as type from './actionType';
 
 
@@ -13,12 +13,13 @@ function Login(props){
     return(
         <form onSubmit={props.handleSubmit(action)}>
             <label>Usuario
-                <Field name="user" component="input" type="text" value="a" className="input1"/>
+                <Field name="user" component="input" type="text" className="input1"/>
             </label>
             <label>Contraseña                
-                <Field name="pass" component="input" type="password" value="d"/>
+                <Field name="pass" component="input" type="password"/>
             </label>
-            <button type='submit'>Enviar</button>
+            <button type='submit' id='enviar'>Enviar</button>
+            <button type='submit' onClick={()=>{dispatch({type:type.CIERRE_SESION});dispatch(reset('loginForm'));}}>Limpiar</button>
         </form>
     );
 }
