@@ -5,8 +5,9 @@ import { Field, reduxForm, reset } from 'redux-form';
 function Login(props){
     let dispatch=useDispatch();
     //dispatch(inicioSesion(["no logueado"]));
-    dispatch(inicioUsuario({nombre:"Christian", rol:"tratar de enseñar"}))
+    //dispatch(inicioUsuario({nombre:"Christian", rol:"tratar de enseñar"}))
     let action = (formValues)=>{
+        console.log(formValues);
         dispatch(inicioSesion(formValues));
      }
     return(

@@ -12,10 +12,10 @@ export default function userReducer(state={},action){
             state = action.data;
             console.log("desde reducer", state);
             return state;
-        case type.CIERRE_SESION:
-            state={};
+        case type.INICIO_USUARIO_COMPLETO:
+            state=action.data;
             console.log("desde reducer cierre", state);
-            return {};
+            return state;
         default:
             return state
     }
